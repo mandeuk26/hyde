@@ -5,17 +5,17 @@ title: Home
 
 <form>
   <select name="language" >
-    <option value="None">=== 선택 ===</option>
-    <option value="Problem" selected>문제</option>
-    <option value="Algorithm">알고리즘</option>
-    <option value="DNC">분할 정복</option>
-    <option value="Binary">이분 탐색</option>
+    <option>=== 선택 ===</option>
+    <option site.keyword="Problem" selected>문제</option>
+    <option site.keyword="Algorithm">알고리즘</option>
+    <option site.keyword="DNC">분할 정복</option>
+    <option site.keyword="Binary">이분 탐색</option>
   </select>
 </form>
 
 <div class="posts">
   {% for post in paginator.posts %}
-    {% if post.tags contains value %}
+    {% if post.tags contains site.keyword %}
       <div class="post">
       <h1 class="post-title">
       <a href="{{ post.url | absolute_url }}">

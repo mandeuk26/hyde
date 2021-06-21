@@ -3,6 +3,16 @@ layout: default
 title: Home
 ---
 
+<form>
+  <select name="language" >
+    <option value="none">=== 선택 ===</option>
+    <option value="korean" selected>한국어</option>
+    <option value="english">영어</option>
+    <option value="chinese">중국어</option>
+    <option value="spanish">스페인어</option>
+  </select>
+</form>
+
 <div class="posts">
   {% for post in paginator.posts %}
     {% if post.tags contains "Algorithm" %}

@@ -31,14 +31,6 @@ Here we generate all the tags.
 
 # Algorithm
 
-<div class="message">
-  {% for tag in tags %}
-  <a href="#{{ tag | slugify }}">{{ tag }}</a>&nbsp;&nbsp;
-  {% endfor %}
-</div>
-
-{% for tag in tags %}
-<p id="{{ tag | slugify }}"><b>{{ tag }}</b></p>
 <ul>
   {% for post in site.posts %}
   {% if post.tags contains tag %}
@@ -50,4 +42,4 @@ Here we generate all the tags.
   {% endif %}
   {% endfor %}
 </ul>
-{% endfor %}
+

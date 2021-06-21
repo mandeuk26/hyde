@@ -4,13 +4,7 @@ title: Home
 ---
 
 <form>
-  <select name="language" >
-    <option>=== 선택 ===</option>
-    <option site.keyword="Problem" selected>문제</option>
-    <option site.keyword="Algorithm">알고리즘</option>
-    <option site.keyword="DNC">분할 정복</option>
-    <option site.keyword="Binary">이분 탐색</option>
-  </select>
+  <button type="submit" onclick="change("Algorithm")">Algorithm</button>
 </form>
 
 <div class="posts">
@@ -44,3 +38,9 @@ title: Home
     <span class="pagination-item newer">Newer</span>
   {% endif %}
 </div>
+
+<script>
+  function change(str) {
+    site.keyword = str
+  }
+</script>

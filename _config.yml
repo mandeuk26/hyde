@@ -13,9 +13,18 @@ author:
 
 # Gems
 plugins:
+  - jekyll-feed
   - jekyll-paginate
   - jekyll-gist
+  - jekyll-paginate-multiple
 
 # Custom vars
 version:          3.0.0
 
+paginate_multiple:
+  - paginate: 2
+    paginate_path: '/page:num/'
+    sub_dir: ''
+  - paginate: 2
+    paginate_path: '/de/page:num/'
+    sub_dir: ''

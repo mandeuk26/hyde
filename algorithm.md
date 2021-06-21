@@ -18,11 +18,9 @@ title: Algorithm
   {% endif %}
 {% endfor %}
 
-{% for tag in tags %}
-<p id="{{ tag | slugify }}"><b>{{ tag }}</b></p>
 <ul>
   {% for post in site.posts %}
-  {% if post.tag1 == 'Algorithm' && post.tag2 == tag %}
+  {% if post.tag1 == 'Algorithm' %}
   <li>
       <a href="{{ post.url }}">
         {{ post.title }}
@@ -31,4 +29,3 @@ title: Algorithm
   {% endif %}
   {% endfor %}
 </ul>
-{% endfor %}

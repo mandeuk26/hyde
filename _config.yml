@@ -22,7 +22,7 @@ version:          3.0.0
 paginate_multiple:
   - paginate: 4
     paginate_path: '/page:num/'
-    sub_dir: ''
+    sub_dir: '/en'
   - paginate: 4
     paginate_path: '/de/page:num/'
-    sub_dir: ''
+    sub_dir: '/de'

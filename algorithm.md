@@ -3,15 +3,13 @@ layout: page
 title: Algorithm
 ---
 
-{% comment%}
-Here we generate all the tags.
-{% endcomment%}
-
 {% assign rawtags = "" %}
 
 {% for post in site.posts %}
+  {% if post.tags contains "Algorithm" %}
   {% assign ttags = post.tags | join:'|' | append:'|' %}
   {% assign rawtags = rawtags | append:ttags %}
+  {% endif %}
 {% endfor %}
 
 {% assign rawtags = rawtags | split:'|' | sort %}
@@ -19,7 +17,7 @@ Here we generate all the tags.
 {% assign tags = "" %}
 
 {% for tag in rawtags %}
-  {% if tag != "" %}
+  {% if tag != "" && tag != "Algorithm" %}
     {% if tags == "" %}
     {% assign tags = tag | split:'|' %}
     {% endif %}
@@ -31,6 +29,8 @@ Here we generate all the tags.
 
 # Algorithm
 
+{% for tag in tags %}
+<p id="{{ tag | slugify }}"><b>{{ tag }}</b></p>
 <ul>
   {% for post in site.posts %}
   {% if post.tags contains tag %}
@@ -42,4 +42,5 @@ Here we generate all the tags.
   {% endif %}
   {% endfor %}
 </ul>
+{% endfor %}
 

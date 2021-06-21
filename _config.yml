@@ -4,8 +4,6 @@ tagline:          'Blog'
 description:      '코딩 공부 정리용'
 url:              https://mandeuk26.github.io/
 baseurl:          ''
-paginate:         5
-paginate_path:    "page:num"
 # About and contact
 author:
   name:           'Mandeuk26'
@@ -22,9 +20,9 @@ plugins:
 version:          3.0.0
 
 paginate_multiple:
-  - paginate: 2
+  - paginate: 4
     paginate_path: '/page:num/'
     sub_dir: ''
-  - paginate: 2
+  - paginate: 4
     paginate_path: '/de/page:num/'
     sub_dir: ''

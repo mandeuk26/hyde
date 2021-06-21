@@ -10,11 +10,14 @@ author:
   url:            https://github.com/mandeuk26/
 
 # Gems
-plugins:
+gems:
+  - jekyll-gist
   - jekyll-feed
   - jekyll-paginate
-  - jekyll-gist
   - jekyll-paginate-multiple
+exclude:
+  - Gemfile
+  - Gemfile.lock
 
 # Custom vars
 version:          3.0.0

@@ -3,14 +3,8 @@ layout: default
 title: Home
 ---
 
-<form>
-  <button type="button" onclick="change('Algorithm')">{ site.keyword }</button>
-  <button type="button" onclick="change('Problem')">Problem</button>
-</form>
-
 <div class="posts">
   {% for post in paginator.posts %}
-    {% if post.tags contains site.keyword %}
       <div class="post">
       <h1 class="post-title">
       <a href="{{ post.url | absolute_url }}">
@@ -19,7 +13,6 @@ title: Home
       </h1>
       <span class="post-date">{{ post.date | date_to_string }}</span>
       </div>
-    {% endif %}
   {% endfor %}
 </div>
 
@@ -39,9 +32,3 @@ title: Home
     <span class="pagination-item newer">Newer</span>
   {% endif %}
 </div>
-
-<script>
-  function change(str) {
-    site.keyword = str
-  }
-</script>

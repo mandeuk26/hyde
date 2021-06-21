@@ -3,37 +3,26 @@ layout: page
 title: Algorithm
 ---
 
-{% assign rawtags = "" %}
-
-{% for post in site.posts %}
-  {% if post.tags contains "Algorithm" %}
-  {% assign ttags = post.tags | join:'|' | append:'|' %}
-  {% assign rawtags = rawtags | append:ttags %}
-  {% endif %}
-{% endfor %}
-
-{% assign rawtags = rawtags | split:'|' | sort %}
-
 {% assign tags = "" %}
 
-{% for tag in rawtags %}
-  {% if tag != "" && tag != "Algorithm" %}
+{% for post in site.posts %}
+  {% if post.tag1 == "Algorithm" %}
+  {% if post.tag2 != "" %}
     {% if tags == "" %}
-    {% assign tags = tag | split:'|' %}
+    {% assign tags = post.tag2 | split:'|' %}
     {% endif %}
-  {% unless tags contains tag %}
-    {% assign tags = tags | join:'|' | append:'|' | append:tag | split:'|' %}
+  {% unless tags contains post.tag2 %}
+    {% assign tags = tags | join:'|' | append:'|' | append:post.tag2 | split:'|' %}
   {% endunless %}
   {% endif %}
+  {% endif %}
 {% endfor %}
-
-# Algorithm
 
 {% for tag in tags %}
 <p id="{{ tag | slugify }}"><b>{{ tag }}</b></p>
 <ul>
   {% for post in site.posts %}
-  {% if post.tags contains tag %}
+  {% if post.tag1 == 'Algorithm' && post.tag2 == tag %}
   <li>
       <a href="{{ post.url }}">
         {{ post.title }}
@@ -43,4 +32,3 @@ title: Algorithm
   {% endfor %}
 </ul>
 {% endfor %}
-

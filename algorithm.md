@@ -8,7 +8,7 @@ title: Algorithm
 {% for post in site.posts %}
   {% if post.tag1 == "Algorithm" %}
   {% if post.tag2 != "" %}
-  {% unless tags contains post.tag2 %}
+  {% unless tags.includes(post.tag2) %}
     {% tags.push(post.tag2)%}
   {% endunless %}
   {% endif %}

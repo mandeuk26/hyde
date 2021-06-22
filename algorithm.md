@@ -20,7 +20,7 @@ title: Algorithm
 {% for tag in tags | reverse %}
 <p id="{{ tag | slugify }}"><b>{{ tag }}</b></p>
 <ul>
-  {% for post in site.posts | reverse %}
+  {% for post in site.posts reversed %}
   {% if post.tags contains tag %}
   {% if post.tags contains "Algorithm" %}
   <li>

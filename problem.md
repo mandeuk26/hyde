@@ -6,9 +6,9 @@ title: Algorithm
 {% assign tags = "" | split: ',' %}
 
 {% for post in site.posts reversed %}
-  {% if post.tags contains "Algorithm" %}
+  {% if post.tags contains "Problem" %}
     {% for tag in post.tags %}
-      {% if tag != "Algorithm" %}
+      {% if tag != "Problem" %}
         {% unless tags contains tag %}
           {% assign tags = tags | push: tag %}
         {% endunless %}
@@ -18,6 +18,7 @@ title: Algorithm
 {% endfor %}
 
 {% for tag in tags %}
+
 <p id="{{ tag | slugify }}"><b>{{ tag }}</b></p>
 <ul>
   {% for post in site.posts reversed %}
@@ -32,6 +33,7 @@ title: Algorithm
   {% endif %}
   {% endfor %}
 </ul>
+
 
 
 {% endfor %}

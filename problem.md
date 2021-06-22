@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Algorithm
+title: Problem
 ---
 
 {% assign tags = "" | split: ',' %}
@@ -23,7 +23,7 @@ title: Algorithm
 <ul>
   {% for post in site.posts reversed %}
   {% if post.tags contains tag %}
-  {% if post.tags contains "Algorithm" %}
+  {% if post.tags contains "Problem" %}
   <li>
       <a href="{{ post.url }}">
         {{ post.title }}

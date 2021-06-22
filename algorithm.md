@@ -18,6 +18,7 @@ title: Algorithm
   {% endif %}
 {% endfor %}
 
+{% console.log(tags) %}
 {% for tag in tags.reverse() %}
 <p id="{{ tag | slugify }}"><b>{{ tag }}</b></p>
 <ul>

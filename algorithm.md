@@ -6,21 +6,28 @@ title: Algorithm
 {% assign tags = "" | split: ',' %}
 
 {% for post in site.posts %}
-  {% if post.tag1 == "Algorithm" %}
-  {% if post.tag2 != "" %}
-  {% unless tags contains post.tag2 %}
-    {% assign tags = tags | push: post.tag2 %}
+  {% if post.tags contains "Algorithm" %}
+
+​	{% for tag in post.tags %}
+
+{% if tag != "Algorithm" %}
+
+  {% unless tags contains tag %}
+    {% assign tags = tags | push: tag %}
   {% endunless %}
   {% endif %}
+
+{% endfor %}
+
   {% endif %}
 {% endfor %}
 
 {% for tag in tags | reverse %}
 <p id="{{ tag | slugify }}"><b>{{ tag }}</b></p>
 <ul>
-  {% for post in site.posts %}
-  {% if post.tag1 == "Algorithm" %}
-  {% if post.tag2 == tag %}
+  {% for post in site.posts | reverse %}
+  {% if post.tags contains "Algorithm" %}
+  {% if post.tags contains tag %}
   <li>
       <a href="{{ post.url }}">
         {{ post.title }}
@@ -30,5 +37,6 @@ title: Algorithm
   {% endif %}
   {% endfor %}
 </ul>
+
 
 {% endfor %}

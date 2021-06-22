@@ -3,13 +3,13 @@ layout: page
 title: Algorithm
 ---
 
-{% assign tags = "" | split: ','%}
+{% assign tags = "" | split: ',' %}
 
 {% for post in site.posts %}
   {% if post.tag1 == "Algorithm" %}
   {% if post.tag2 != "" %}
   {% unless tags contains post.tag2 %}
-    {% tags = tags | push: post.tag2 %}
+    {% assign tags = tags | push: post.tag2 %}
   {% endunless %}
   {% endif %}
   {% endif %}

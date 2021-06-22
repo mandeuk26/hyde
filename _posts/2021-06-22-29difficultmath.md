@@ -61,7 +61,7 @@ r1 = r2, r2 = r를 주고 반복
 
 초기에는 r1 = A, r2 = B이기 때문에 `s1 = 1, s2 = 0, t1 = 0, t2 = 1`로 초깃값을 준다. 그렇다면 r은 다음과 같이 변형할 수 있다.  
 
-**r = r1 - r2Q = (s1A + t1B) - (s2A + t2B)Q  **  
+**r = r1 - r2Q = (s1A + t1B) - (s2A + t2B)Q**  
 **r = (s1 - s2Q)A + (t1 - t2Q)B = sA + tB**
 
 놀랍게도 r의 s와 t는 r과 동일한 형태로 나타나게 된다.  
@@ -253,13 +253,11 @@ func isPrime(n: UInt64) -> Bool {
 
 **x<sub>i</sub> = x<sub>0</sub>, f(x<sub>0</sub>), f(f(x<sub>0</sub>)) &hellip;**  
 
-n = 24751043, x<sub>0</sub> = 2, c = 1이라면 수열은  
+n = 24751043, x<sub>0</sub> = 2, c = 1이라면 수열은 다음과 같다.  
 
 **x<sub>i</sub> = 2, 5, 26, 677, 458330 &hellip;**  
 
-으로 나타나게 된다.  
-
-이 때 각 항을 p|n인 p로 나눈 나머지를 구한다. 24751043 = 317 x 78079이기 때문에 p = 317로 수열을 나눈 나머지를 순서대로 써보자.  
+이 때 각 항을 p&#124;n인 p로 나눈 나머지를 구한다. 24751043 = 317 x 78079이기 때문에 p = 317로 수열을 나눈 나머지를 순서대로 써보자.  
 
 **x<sub>i</sub> mod p = 2, 5, 26, 43, 265, 169, 32, 74, 88, 137, 67, 52, 169 &hellip;**  
 
@@ -271,11 +269,10 @@ n = 24751043, x<sub>0</sub> = 2, c = 1이라면 수열은
 
 **x<sub>i</sub> &equiv; x<sub>j</sub> (mod p)**  
 
-이는 달리 얘기하면 p|(x<sub>i</sub> - x<sub>j</sub>) 라는 의미가 된다. 이 때 p는 n의 인수라고 가정했기 때문에 p|n이 성립하고 최종적으로 p|gcd(x<sub>i</sub> - x<sub>j</sub>, n)이 성립한다.  
-
-따라서 이를 활용하여 p값을 먼저 정하고 진행하는 것이 아니라 gcd(x<sub>i</sub> - x<sub>j</sub>, n) 값을 구하고 그 값이 1이 아닐경우 n의 인수 p라고 판별할 수 있다.  
+이는 달리 얘기하면 p&#124;(x<sub>i</sub> - x<sub>j</sub>) 라는 의미가 된다. 이 때 p는 n의 인수라고 가정했기 때문에 p&#124;n이 성립하고 최종적으로 p&#124;gcd(x<sub>i</sub> - x<sub>j</sub>, n)이 성립한다. 따라서 이를 활용하여 p값을 먼저 정하고 진행하는 것이 아니라 gcd(x<sub>i</sub> - x<sub>j</sub>, n) 값을 구하고 그 값이 1이 아닐경우 n의 인수 p라고 판별할 수 있다.  
 
 그렇다면 x<sub>i</sub>, x<sub>j</sub>를 선택하는 기준을 어떻게 잡아야할까? 일반적으로 알려진 방법은 **x<sub>i</sub> = f(x<sub>i</sub>), x<sub>j</sub> = f(f(x<sub>j</sub>))** 로 값을 변경해가면서 **gcd(x<sub>i</sub> - x<sub>j</sub>, n) 값이 1이 아닌 지점**이 나올때까지 반복하는 형태로 사용한다. 왜 x<sub>i</sub>는 f를 한번 적용시키는데 x<sub>j</sub>는 f를 두번 적용시키는지에 대해 의문이 들 수 있다. 만약 두 수에 대해 f를 모두 한번씩 적용시키게 되면 다음과 같다.  
+
 **f(x<sub>i</sub>) = x<sub>i</sub><sup>2</sup> + c (mod n)**  
 **f(x<sub>j</sub>) = x<sub>j</sub><sup>2</sup> + c (mod n)**  
 
